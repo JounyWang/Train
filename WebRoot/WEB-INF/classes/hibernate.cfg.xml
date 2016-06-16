@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd" >
+<hibernate-configuration>
+	<session-factory>
+		<property name="dialect">
+			org.hibernate.dialect.Oracle10gDialect
+		</property>
+		<property name="connection.url">
+			jdbc:oracle:thin:@localhost:1521:orcl
+		</property>
+		<property name="connection.username">gm</property>
+		<property name="connection.password">wlj123</property>
+		<property name="connection.driver_class">
+			oracle.jdbc.driver.OracleDriver
+		</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="cache.use_second_level_cache">true</property>
+		<property name="cache.provider_class">
+			org.hibernate.cache.EhCacheProvider
+		</property>
+		<property name="cache.use_query_cache">true</property>
+		<mapping resource="cn/train/entity/Train.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="   
+           http://www.springframework.org/schema/beans   
+           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd   
+           http://www.springframework.org/schema/context   
+           http://www.springframework.org/schema/context/spring-context-3.2.xsd  
+           http://www.springframework.org/schema/mvc   
+           http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+	<!-- <mvc:resources location="/assets/images/" mapping="/assets/images/**" 
+		/> <mvc:resources location="/assets/css/" mapping="/assets/css/**" /> <mvc:resources 
+		location="/assets/js/" mapping="/assets/js/**" /> <mvc:resources location="/assets/i/" 
+		mapping="/assets/i/**" /> <mvc:resources location="/assets/fonts/" mapping="/assets/fonts/**" 
+		/> -->
+	<!-- 开启SpringMVC注解 -->
+	<mvc:annotation-driven />
+
+	<!-- 扫描所有包的注解 -->
+	<context:component-scan base-package="cn.train.controller">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+
+
+
+	<!-- jsp页面解析器，当Controller返回XXX字符串时，先通过拦截器，然后该类就会在jsp/目录下，查找XXX.jsp文件 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value=""></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+</beans>
